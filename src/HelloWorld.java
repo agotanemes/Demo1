@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class HelloWorld {
@@ -150,18 +152,38 @@ public class HelloWorld {
         return newstr.toString();
     }
     //Problems with lists
+    //10.Print the square root of each element of a 1D int array
+    public static void getSqrtforListElem(int[] a){
+        for(int i: a){
+            System.out.println(Math.sqrt(i));
+        }
+    }
+    //11.Find the index of the longest element in a 1D String array.
+    public static int getIndexLongest(List<String> a){
+        int max= a.get(0).length();
+        int index=-1;
+        for(int i=1;i<a.size();i++){
+            if(max<a.get(i).length()){
+                max=a.get(i).length();
+                index=i;
+            }
+        }
+        return index;
+
+    }
+
 
 
 
     public static void main(String args[]){
        Scanner sc=new Scanner(System.in);
-        /*System.out.println("Hello");
+        System.out.println("Hello");
         System.out.println("Agi");
         System.out.println("The sum is: "+ sum(10,12));
         Dog d= new Dog("black",3,"toto");
-        System.out.println(d.getColor());*/
+        System.out.println(d.getColor());
         //1. Given 3 numbers, print the biggest and the smallest
-       /* System.out.println("Min and max values: ");
+        System.out.println("Min and max values: ");
         minandmax(5,3,6);
         minandmax(3,7,8);
         minandmax(8,6,5);
@@ -195,14 +217,25 @@ public class HelloWorld {
         //8 Generate the first 20 Fibonacci numbers
         System.out.println("Enter the number of fibo numbers that you want:");
         int z=sc.nextInt();
-        fiboNumbers(z);*/
+        fiboNumbers(z);
         //9 Given an array of characters, encode it using Caesar's code.
         //  Caesar's code encodes a letter by moving it n positions down
         //  the alphabet cyclically. For n=3:  'A' → 'D', 'C' → 'F', 'Z' → 'C'
         //  “Testing” → “Whvwlqj”
         System.out.println("Caesar's code: ");
         System.out.println(getCaesarCode("Testing",3));
-
+        //Lists
+        //10.Print the square root of each element of a 1D int array
+        int[] l= {2,12,4,9,10};
+        System.out.println("Sqrt of numbers:");
+        getSqrtforListElem(l);
+        //11.Find the index of the longest element in a 1D String array.
+        List<String> str= new ArrayList<String>();
+        str.add("sgi");
+        str.add("blablablabla");
+        str.add("jdhbasd");
+        str.add("blablablsadasddsdad");
+        System.out.println("Longest string from List: "+ getIndexLongest(str));
 
     };
 
